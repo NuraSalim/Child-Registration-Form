@@ -12,7 +12,7 @@ body{
   background:#f6f7fb;
   padding:24px;
 }
-.wrap{max-width:1000px;margin:auto;}
+.wrap{max-width:1100px;margin:auto;}
 .header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
 .logo{height:70px;}
 h1{margin:0;font-size:22px;}
@@ -36,7 +36,7 @@ label{
 /* inputs smaller */
 input,select,textarea{
   width:100%;
-  max-width:420px;          /* 🔥 campi compatti */
+  max-width:420px;
   padding:7px 9px;
   border:1px solid #e5e7eb;
   border-radius:6px;
@@ -61,12 +61,23 @@ legend{
 
 .grid{
   display:grid;
-  gap:18px;                 /* 🔥 spazio tra i due campi */
+  gap:18px;
 }
 
 @media(min-width:820px){
   .cols-2{grid-template-columns:1fr 1fr;}
   .cols-3{grid-template-columns:1fr 1fr 1fr;}
+}
+
+/* side by side sections */
+.side-by-side{
+  display:grid;
+  gap:20px;
+}
+@media(min-width:900px){
+  .side-by-side{
+    grid-template-columns:1fr 1fr;
+  }
 }
 
 /* radio & checkbox */
@@ -156,51 +167,32 @@ h3{
 
 <form class="card" method="POST" action="submit.php">
 
-<!-- CHILD NAME ENGLISH -->
-<fieldset>
-  <legend>Child Name (English)</legend>
-  <div class="grid cols-2">
-    <div>
-      <label>First Name</label>
-      <input name="First_Name_en" required>
-    </div>
-    <div>
-      <label>Father Name</label>
-      <input name="Father_Name_en" required>
-    </div>
-    <div>
-      <label>Grandfather Name</label>
-      <input name="Grandfather_Name_en" required>
-    </div>
-    <div>
-      <label>Last Name</label>
-      <input name="Last_Name_en" required>
-    </div>
-  </div>
-</fieldset>
+<!-- NAME SECTIONS SIDE BY SIDE -->
+<div class="side-by-side">
 
-<!-- CHILD NAME ARABIC -->
-<fieldset class="arabic-section">
-  <legend>اسم الطفل (بالعربي)</legend>
-  <div class="grid cols-2">
-    <div>
-      <label>الاسم الأول</label>
-      <input name="First_Name_ar" required>
+  <!-- NAME ENGLISH -->
+  <fieldset>
+    <legend>Name (English)</legend>
+    <div class="grid cols-2">
+      <div><label>First Name</label><input name="First_Name_en" required></div>
+      <div><label>Father Name</label><input name="Father_Name_en" required></div>
+      <div><label>Grandfather Name</label><input name="Grandfather_Name_en" required></div>
+      <div><label>Last Name</label><input name="Last_Name_en" required></div>
     </div>
-    <div>
-      <label>اسم الأب</label>
-      <input name="Father_Name_ar" required>
+  </fieldset>
+
+  <!-- NAME ARABIC -->
+  <fieldset class="arabic-section">
+    <legend>اسم الطفل (بالعربي)</legend>
+    <div class="grid cols-2">
+      <div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
+      <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
+      <div><label>اسم الجد</label><input name="Grandfather_Name_ar" required></div>
+      <div><label>اسم العائلة</label><input name="Last_Name_ar" required></div>
     </div>
-    <div>
-      <label>اسم الجد</label>
-      <input name="Grandfather_Name_ar" required>
-    </div>
-    <div>
-      <label>اسم العائلة</label>
-      <input name="Last_Name_ar" required>
-    </div>
-  </div>
-</fieldset>
+  </fieldset>
+
+</div>
 
 <!-- PERSONAL INFO -->
 <fieldset>
@@ -213,14 +205,8 @@ h3{
         <label><input type="radio" name="gender" value="Female" required> Female</label>
       </div>
     </div>
-    <div>
-      <label>Date of Birth</label>
-      <input type="date" name="date_of_birth" required>
-    </div>
-    <div>
-      <label>Nationality</label>
-      <input name="nationality" placeholder="e.g. Egyptian" required>
-    </div>
+    <div><label>Date of Birth</label><input type="date" name="date_of_birth" required></div>
+    <div><label>Nationality</label><input name="nationality" placeholder="e.g. Egyptian" required></div>
     <div>
       <label>Blood Type</label>
       <select name="blood_type" required>
