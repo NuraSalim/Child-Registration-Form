@@ -185,8 +185,8 @@ h3{
   <fieldset class="arabic-section">
     <legend>اسم الطفل (بالعربي)</legend>
     <div class="grid cols-2">
-      <div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
       <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
+      <div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
       <div><label>اسم الجد</label><input name="Grandfather_Name_ar" required></div>
       <div><label>اسم العائلة</label><input name="Last_Name_ar" required></div>
     </div>
@@ -211,6 +211,7 @@ h3{
       <label>Blood Type</label>
       <select name="blood_type" required>
         <option value="">Select</option>
+        <option>N/A</option>
         <option>A+</option><option>A-</option>
         <option>B+</option><option>B-</option>
         <option>AB+</option><option>AB-</option>
@@ -236,7 +237,8 @@ h3{
     <div><label>Full Name</label><input name="parent1_full_name" required></div>
     <div><label>National ID Number</label><input name="parent1_national_id" required></div>
     <div><label>Job Title</label><input name="parent1_job_title" required></div>
-    <div><label>Employer / Workplace</label><input name="parent1_employer" required></div>
+    <div><label> Phone </label><input name="phone" required></div>
+    <div><label> email </label><input name="email_1" required></div>
   </div>
 
   <h3>Parent / Guardian 2 (Optional)</h3>
@@ -244,7 +246,8 @@ h3{
     <div><label>Full Name</label><input name="parent2_full_name"></div>
     <div><label>National ID Number</label><input name="parent2_national_id"></div>
     <div><label>Job Title</label><input name="parent2_job_title"></div>
-    <div><label>Employer / Workplace</label><input name="parent2_employer"></div>
+    <div><label> Phone </label><input name="phone_2" required></div>
+    <div><label> email </label><input name="email_2" required></div>
   </div>
 </fieldset>
 
@@ -277,3 +280,4 @@ h3{
 </div>
 </body>
 </html>
+
