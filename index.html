@@ -25,7 +25,7 @@ h1{margin:0;font-size:22px;}
   box-shadow:0 10px 24px rgba(0,0,0,.05);
 }
 
-/* LABELS */
+/* labels */
 label{
   display:block;
   margin:6px 0 3px;
@@ -33,9 +33,10 @@ label{
   color:#374151;
 }
 
-/* INPUTS SMALLER */
+/* inputs smaller */
 input,select,textarea{
   width:100%;
+  max-width:420px;          /* 🔥 campi compatti */
   padding:7px 9px;
   border:1px solid #e5e7eb;
   border-radius:6px;
@@ -60,7 +61,7 @@ legend{
 
 .grid{
   display:grid;
-  gap:12px;
+  gap:18px;                 /* 🔥 spazio tra i due campi */
 }
 
 @media(min-width:820px){
@@ -68,7 +69,7 @@ legend{
   .cols-3{grid-template-columns:1fr 1fr 1fr;}
 }
 
-/* RADIO & CHECKBOX – SMALL + LEFT */
+/* radio & checkbox */
 .radio-group,
 .checkbox-group{
   display:flex;
@@ -82,7 +83,6 @@ legend{
 .checkbox-group label{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:8px;
   font-size:13px;
 }
@@ -95,7 +95,7 @@ input[type="checkbox"]{
   flex-shrink:0;
 }
 
-/* ARABIC SECTION FIX */
+/* arabic section fix */
 .arabic-section{
   direction:ltr;
 }
@@ -105,14 +105,14 @@ input[type="checkbox"]{
   text-align:right;
 }
 
-/* NOTES */
+/* notes */
 .note{
   font-size:12.5px;
   color:#b45309;
   margin-top:8px;
 }
 
-/* ACTIONS */
+/* actions */
 .actions{
   display:flex;
   justify-content:flex-end;
@@ -156,133 +156,129 @@ h3{
 
 <form class="card" method="POST" action="submit.php">
 
-<!-- CHILD IDENTIFICATION -->
+<!-- CHILD NAME ENGLISH -->
 <fieldset>
-<legend>Child Identification</legend>
-<div class="grid cols-2">
-  <div>
-    <label>Child ID</label>
-    <input name="child_id" placeholder="e.g. CH-0001" required>
+  <legend>Child Name (English)</legend>
+  <div class="grid cols-2">
+    <div>
+      <label>First Name</label>
+      <input name="First_Name_en" required>
+    </div>
+    <div>
+      <label>Father Name</label>
+      <input name="Father_Name_en" required>
+    </div>
+    <div>
+      <label>Grandfather Name</label>
+      <input name="Grandfather_Name_en" required>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input name="Last_Name_en" required>
+    </div>
   </div>
-  <div>
-    <label>Passport / ID</label>
-    <input name="passport_id" placeholder="Passport or ID number" required>
-  </div>
-</div>
 </fieldset>
 
-<!-- NAME ENGLISH -->
-<fieldset>
-<legend>Name (English)</legend>
-<div class="grid cols-2">
-  <div><label>First Name</label><input name="First_Name_en" required></div>
-  <div><label>Father Name</label><input name="Father_Name_en" required></div>
-  <div><label>Grandfather Name</label><input name="Grandfather_Name_en" required></div>
-  <div><label>Last Name</label><input name="Last_Name_en" required></div>
-</div>
-</fieldset>
-
-<!-- NAME ARABIC -->
+<!-- CHILD NAME ARABIC -->
 <fieldset class="arabic-section">
-<legend>اسم الطفل (بالعربي)</legend>
-<div class="grid cols-2">
-  <div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
-  <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
-  <div><label>اسم الجد</label><input name="Grandfather_Name_ar" required></div>
-  <div><label>اسم العائلة</label><input name="Last_Name_ar" required></div>
-</div>
+  <legend>اسم الطفل (بالعربي)</legend>
+  <div class="grid cols-2">
+    <div>
+      <label>الاسم الأول</label>
+      <input name="First_Name_ar" required>
+    </div>
+    <div>
+      <label>اسم الأب</label>
+      <input name="Father_Name_ar" required>
+    </div>
+    <div>
+      <label>اسم الجد</label>
+      <input name="Grandfather_Name_ar" required>
+    </div>
+    <div>
+      <label>اسم العائلة</label>
+      <input name="Last_Name_ar" required>
+    </div>
+  </div>
 </fieldset>
 
 <!-- PERSONAL INFO -->
 <fieldset>
-<legend>Personal Information</legend>
-<div class="grid cols-3">
-  <div>
-    <label>Gender</label>
-    <div class="radio-group">
-      <label><input type="radio" name="gender" value="Male" required> Male</label>
-      <label><input type="radio" name="gender" value="Female" required> Female</label>
+  <legend>Personal Information</legend>
+  <div class="grid cols-3">
+    <div>
+      <label>Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female" required> Female</label>
+      </div>
+    </div>
+    <div>
+      <label>Date of Birth</label>
+      <input type="date" name="date_of_birth" required>
+    </div>
+    <div>
+      <label>Nationality</label>
+      <input name="nationality" placeholder="e.g. Egyptian" required>
+    </div>
+    <div>
+      <label>Blood Type</label>
+      <select name="blood_type" required>
+        <option value="">Select</option>
+        <option>A+</option><option>A-</option>
+        <option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option>
+        <option>O+</option><option>O-</option>
+      </select>
     </div>
   </div>
-  <div><label>Date of Birth</label><input type="date" name="date_of_birth" required></div>
-  <div><label>Nationality</label><input name="nationality" placeholder="e.g. Egyptian" required></div>
-  <div>
-    <label>Blood Type</label>
-    <select name="blood_type" required>
-      <option value="">Select</option>
-      <option>A+</option><option>A-</option>
-      <option>B+</option><option>B-</option>
-      <option>AB+</option><option>AB-</option>
-      <option>O+</option><option>O-</option>
-    </select>
-  </div>
-</div>
 </fieldset>
 
 <!-- MEDICAL -->
 <fieldset>
-<legend>Medical Information</legend>
-<label>Medical Notes</label>
-<textarea name="medical_notes" required></textarea>
-</fieldset>
-
-<!-- ENROLLMENT -->
-<fieldset>
-<legend>Enrollment Details</legend>
-<div class="grid cols-3">
-  <div><label>Enrollment Date</label><input type="date" name="enrollment_date" required></div>
-  <div>
-    <label>Status</label>
-    <select name="status" required>
-      <option value="">Select</option>
-      <option>Active</option>
-      <option>Pending</option>
-      <option>Inactive</option>
-    </select>
-  </div>
-</div>
+  <legend>Medical Information</legend>
+  <label>Medical Notes</label>
+  <textarea name="medical_notes" required></textarea>
 </fieldset>
 
 <!-- PARENTS -->
 <fieldset>
-<legend>Parent / Guardian Information</legend>
+  <legend>Parent / Guardian Information</legend>
 
-<h3>Parent / Guardian 1 (Required)</h3>
-<div class="grid cols-2">
-  <div><label>Full Name</label><input name="parent1_full_name" required></div>
-  <div><label>National ID Number</label><input name="parent1_national_id" required></div>
-  <div><label>Job Title</label><input name="parent1_job_title" required></div>
-  <div><label>Employer / Workplace</label><input name="parent1_employer" required></div>
-</div>
+  <h3>Parent / Guardian 1 (Required)</h3>
+  <div class="grid cols-2">
+    <div><label>Full Name</label><input name="parent1_full_name" required></div>
+    <div><label>National ID Number</label><input name="parent1_national_id" required></div>
+    <div><label>Job Title</label><input name="parent1_job_title" required></div>
+    <div><label>Employer / Workplace</label><input name="parent1_employer" required></div>
+  </div>
 
-<h3>Parent / Guardian 2 (Optional)</h3>
-<div class="grid cols-2">
-  <div><label>Full Name</label><input name="parent2_full_name"></div>
-  <div><label>National ID Number</label><input name="parent2_national_id"></div>
-  <div><label>Job Title</label><input name="parent2_job_title"></div>
-  <div><label>Employer / Workplace</label><input name="parent2_employer"></div>
-</div>
+  <h3>Parent / Guardian 2 (Optional)</h3>
+  <div class="grid cols-2">
+    <div><label>Full Name</label><input name="parent2_full_name"></div>
+    <div><label>National ID Number</label><input name="parent2_national_id"></div>
+    <div><label>Job Title</label><input name="parent2_job_title"></div>
+    <div><label>Employer / Workplace</label><input name="parent2_employer"></div>
+  </div>
 </fieldset>
 
 <!-- EXTRA REQUESTS -->
 <fieldset>
-<legend>Extra Requests (Optional)</legend>
-
-<div class="checkbox-group">
-  <label><input type="checkbox" name="extra_early_dropin">
-    Before school early drop-in hours (7:00 AM – 8:00 AM)
-  </label>
-  <label><input type="checkbox" name="extra_late_pickup">
-    After school late evening pickup hours (4:00 PM – 6:00 PM)
-  </label>
-  <label><input type="checkbox" name="extra_lunch_meals">
-    Lunch meals from our external food provider
-  </label>
-</div>
-
-<p class="note">
-Please note: Additional fees apply for the selected extra services.
-</p>
+  <legend>Extra Requests (Optional)</legend>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="extra_early_dropin">
+      Before school early drop-in hours (7:00 AM – 8:00 AM)
+    </label>
+    <label><input type="checkbox" name="extra_late_pickup">
+      After school late evening pickup hours (4:00 PM – 6:00 PM)
+    </label>
+    <label><input type="checkbox" name="extra_lunch_meals">
+      Lunch meals from our external food provider
+    </label>
+  </div>
+  <p class="note">
+    Please note: Additional fees apply for the selected extra services.
+  </p>
 </fieldset>
 
 <!-- ACTIONS -->
