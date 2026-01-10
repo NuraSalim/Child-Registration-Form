@@ -20,7 +20,7 @@
 
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background:var(--bg);
       color:var(--text);
       padding:24px;
@@ -31,7 +31,6 @@
       margin:0 auto;
     }
 
-    /* HEADER */
     .header{
       display:flex;
       align-items:center;
@@ -54,7 +53,6 @@
       font-size:14px;
     }
 
-    /* FORM CARD */
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -63,16 +61,13 @@
       box-shadow:0 10px 24px rgba(0,0,0,.05);
     }
 
-    /* IMAGE INSIDE FORM */
     .image-box{
-      display:flex;
-      justify-content:center;
+      text-align:center;
       margin-bottom:20px;
     }
 
     .image-box img{
       max-width:180px;
-      height:auto;
       border-radius:12px;
       border:1px solid var(--line);
       padding:6px;
@@ -93,13 +88,12 @@
       border:1px solid var(--line);
       border-radius:12px;
       padding:14px;
-      margin:0;
+      margin-top:14px;
     }
 
     legend{
-      padding:0 8px;
       font-size:13px;
-      font-weight:600;
+      font-weight:bold;
       color:var(--muted);
     }
 
@@ -112,46 +106,27 @@
 
     input, select, textarea{
       width:100%;
-      padding:10px 12px;
+      padding:10px;
       border:1px solid var(--line);
       border-radius:10px;
       font-size:14px;
     }
 
-    input:focus, select:focus, textarea:focus{
-      outline:none;
-      border-color:var(--accent);
-      box-shadow:0 0 0 3px rgba(37,99,235,.15);
-    }
-
     textarea{
       min-height:90px;
-      resize:vertical;
     }
 
     .radio-group{
       display:flex;
       gap:14px;
-      padding-top:6px;
-    }
-
-    .radio{
-      display:flex;
-      align-items:center;
-      gap:6px;
-      font-size:14px;
-    }
-
-    .radio input{
-      width:auto;
-      accent-color:var(--accent);
+      margin-top:6px;
     }
 
     .actions{
       display:flex;
       justify-content:flex-end;
       gap:10px;
-      margin-top:16px;
+      margin-top:20px;
     }
 
     button{
@@ -160,7 +135,7 @@
       border:1px solid var(--line);
       background:#fff;
       cursor:pointer;
-      font-weight:600;
+      font-weight:bold;
     }
 
     button.primary{
@@ -172,140 +147,47 @@
 </head>
 
 <body>
-  <div class="wrap">
+<div class="wrap">
 
-    <!-- HEADER WITH LOGO -->
-    <header class="header">
-      <img src="Immaginemm.png" alt="Immaginemm Logo" class="logo">
+  <!-- HEADER -->
+  <header class="header">
+    <img src="Immaginemm.png" alt="Immaginemm Logo" class="logo">
+    <div>
+      <h1>Child Registration Form</h1>
+      <p class="sub">Please fill in the child’s details below</p>
+    </div>
+  </header>
+
+  <!-- FORM -->
+  <form class="card" method="POST" action="submit.php">
+
+    <div class="image-box">
+      <img src="Immaginemm.png" alt="Form Image">
+    </div>
+
+    <div class="grid cols-2">
       <div>
-        <h1>Child Registration Form</h1>
-        <p class="sub">Fill in the child’s details below</p>
+        <label>Child ID</label>
+        <input type="text" name="child_id">
       </div>
-    </header>
-
-    <!-- FORM -->
-    <form class="card" method="post">
-
-      <!-- IMAGE INSIDE FORM -->
-      <div class="image-box">
-        <img src="Immaginemm.png" alt="Form Image">
+      <div>
+        <label>Passport / ID</label>
+        <input type="text" name="passport_id">
       </div>
+    </div>
 
+    <fieldset>
+      <legend>Name (English)</legend>
       <div class="grid cols-2">
-        <div>
-          <label>Passport / ID</label>
-          <input type="text" name="passport_id">
-        </div>
+        <div><label>First Name</label><input name="First_Name_en"></div>
+        <div><label>Father Name</label><input name="Father_Name_en"></div>
+        <div><label>Grandfather Name</label><input name="Grandfather_Name_en"></div>
+        <div><label>Last Name</label><input name="Last_Name_en"></div>
       </div>
+    </fieldset>
 
-      <div class="grid cols-2" style="margin-top:14px;">
-        <fieldset>
-          <legend>Name (English)</legend>
-          <div class="grid cols-2">
-            <div>
-              <label>First Name</label>
-              <input type="text" name="First_Name_en">
-            </div>
-            <div>
-              <label>Father Name</label>
-              <input type="text" name="Father_Name_en">
-            </div>
-            <div>
-              <label>Grandfather Name</label>
-              <input type="text" name="Grandfather_Name_en">
-            </div>
-            <div>
-              <label>Last Name</label>
-              <input type="text" name="Last_Name_en">
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset dir="rtl">
-          <legend>الاسم (بالعربي)</legend>
-          <div class="grid cols-2">
-            <div>
-              <label>الاسم الأول</label>
-              <input type="text" name="First_Name_ar">
-            </div>
-            <div>
-              <label>اسم الأب</label>
-              <input type="text" name="Father_Name_ar">
-            </div>
-            <div>
-              <label>اسم الجد</label>
-              <input type="text" name="Grandfather_Name_ar">
-            </div>
-            <div>
-              <label>اسم العائلة</label>
-              <input type="text" name="Last_Name_ar">
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-      <fieldset style="margin-top:14px;">
-        <legend>Personal Information</legend>
-        <div class="grid cols-3">
-          <div>
-            <label>Gender</label>
-            <div class="radio-group">
-              <label class="radio"><input type="radio" name="gender" value="Male"> Male</label>
-              <label class="radio"><input type="radio" name="gender" value="Female"> Female</label>
-            </div>
-          </div>
-          <div>
-            <label>Date of Birth</label>
-            <input type="date" name="date_of_birth">
-          </div>
-          <div>
-            <label>Nationality</label>
-            <input type="text" name="nationality">
-          </div>
-          <div>
-            <label>Blood Type</label>
-            <select name="blood_type">
-              <option value="">Select</option>
-              <option>A+</option><option>A-</option>
-              <option>B+</option><option>B-</option>
-              <option>AB+</option><option>AB-</option>
-              <option>O+</option><option>O-</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset style="margin-top:14px;">
-        <legend>Medical Information</legend>
-        <label>Medical Notes</label>
-        <textarea name="medical_notes"></textarea>
-      </fieldset>
-
-      <fieldset style="margin-top:14px;">
-        <legend>Enrollment Details</legend>
-        <div class="grid cols-3">
-          <div>
-            <label>Enrollment Date</label>
-            <input type="date" name="enrollment_date">
-          </div>
-          <div>
-            <label>Status</label>
-            <select name="status">
-              <option value="">Select</option>
-              <option>Active</option>
-              <option>Pending</option>
-              <option>Inactive</option>
-            </select>
-          </div>
-        </div>
-      </fieldset>
-
-      <div class="actions">
-        <button type="reset">Clear</button>
-        <button type="submit" class="primary">Submit</button>
-      </div>
-
-    </form>
-  </div>
-</body>
-</html>
+    <fieldset dir="rtl">
+      <legend>الاسم (بالعربي)</legend>
+      <div class="grid cols-2">
+        <div><label>الاسم الأول</label><input name="First_Name_ar"></div>
+        <div><label>اسم الأب</label><input na
