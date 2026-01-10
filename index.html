@@ -1,101 +1,254 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Child Registration Form</title>
+
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#2563eb;
+      --radius:14px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      padding:24px;
+    }
+
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+    }
+
+    /* HEADER */
+    .header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:20px;
+    }
+
+    .logo{
+      height:70px;
+    }
+
+    h1{
+      margin:0;
+      font-size:22px;
+    }
+
+    .sub{
+      margin-top:4px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* FORM CARD */
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:0 10px 24px rgba(0,0,0,.05);
+    }
+
+    /* IMAGE INSIDE FORM */
+    .image-box{
+      display:flex;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+
+    .image-box img{
+      max-width:180px;
+      height:auto;
+      border-radius:12px;
+      border:1px solid var(--line);
+      padding:6px;
+      background:#fff;
+    }
+
+    .grid{
+      display:grid;
+      gap:14px;
+    }
+
+    @media(min-width:820px){
+      .grid.cols-2{ grid-template-columns:1fr 1fr; }
+      .grid.cols-3{ grid-template-columns:1fr 1fr 1fr; }
+    }
+
+    fieldset{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px;
+      margin:0;
+    }
+
+    legend{
+      padding:0 8px;
+      font-size:13px;
+      font-weight:600;
+      color:var(--muted);
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      font-size:14px;
+    }
+
+    input:focus, select:focus, textarea:focus{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 3px rgba(37,99,235,.15);
+    }
+
+    textarea{
+      min-height:90px;
+      resize:vertical;
+    }
+
+    .radio-group{
+      display:flex;
+      gap:14px;
+      padding-top:6px;
+    }
+
+    .radio{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:14px;
+    }
+
+    .radio input{
+      width:auto;
+      accent-color:var(--accent);
+    }
+
+    .actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    button{
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    button.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+    }
+  </style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Child Registration Form</title>
 
 <style>
-/* BASE */
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background:#ffffff;
-  color:#111827;
+  background:#f6f7fb;
+  padding:24px;
+}
+.wrap{max-width:1100px;margin:auto;}
+.header{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.logo{height:70px;}
+h1{margin:0;font-size:22px;}
+.sub{color:#6b7280;font-size:14px;}
+
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 10px 24px rgba(0,0,0,.05);
 }
 
-.wrap{
-  width:100%;
-  padding:24px 32px;
-}
-
-/* HEADER */
-.header{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  margin-bottom:24px;
-}
-.logo{
-  height:80px;
-}
-h1{
-  margin:0;
-  font-size:24px;
-}
-.sub{
-  font-size:14px;
-  color:#6b7280;
-}
-
-/* FORM ELEMENTS */
+/* labels */
 label{
   display:block;
-  margin:6px 0 4px;
-  font-size:13px;
+  margin:6px 0 3px;
+  font-size:12.5px;
   color:#374151;
 }
 
-input, select, textarea{
+/* inputs smaller */
+input,select,textarea{
   width:100%;
   max-width:420px;
-  padding:8px 10px;
-  border:1px solid #d1d5db;
+  padding:7px 9px;
+  border:1px solid #e5e7eb;
   border-radius:6px;
   font-size:13px;
+  line-height:1.2;
 }
 
-textarea{
-  min-height:80px;
-}
+textarea{min-height:80px;}
 
-/* FIELDSET */
 fieldset{
   border:1px solid #e5e7eb;
-  border-radius:10px;
-  padding:16px;
-  margin-bottom:20px;
+  border-radius:12px;
+  padding:14px;
+  margin-top:16px;
 }
 
 legend{
-  font-size:14px;
   font-weight:bold;
-  padding:0 8px;
+  font-size:13px;
+  color:#111827;
 }
 
-/* GRID */
 .grid{
   display:grid;
   gap:18px;
 }
 
-@media(min-width:900px){
+@media(min-width:820px){
   .cols-2{grid-template-columns:1fr 1fr;}
   .cols-3{grid-template-columns:1fr 1fr 1fr;}
 }
 
-/* SIDE BY SIDE (EN / AR) */
+/* side by side sections */
 .side-by-side{
   display:grid;
-  gap:24px;
+  gap:20px;
 }
-@media(min-width:1100px){
+@media(min-width:900px){
   .side-by-side{
     grid-template-columns:1fr 1fr;
   }
 }
 
-/* RADIO & CHECKBOX */
+/* radio & checkbox */
 .radio-group,
 .checkbox-group{
   display:flex;
@@ -115,12 +268,13 @@ legend{
 
 input[type="radio"],
 input[type="checkbox"]{
-  width:14px;
-  height:14px;
+  width:13px;
+  height:13px;
   margin:0;
+  flex-shrink:0;
 }
 
-/* ARABIC FIX */
+/* arabic section fix */
 .arabic-section{
   direction:ltr;
 }
@@ -130,136 +284,147 @@ input[type="checkbox"]{
   text-align:right;
 }
 
-/* NOTE */
+/* notes */
 .note{
-  font-size:13px;
+  font-size:12.5px;
   color:#b45309;
   margin-top:8px;
 }
 
-/* ACTIONS */
+/* actions */
 .actions{
   display:flex;
   justify-content:flex-end;
-  gap:12px;
-  margin-top:24px;
+  gap:10px;
+  margin-top:22px;
 }
 
 button{
-  padding:10px 20px;
-  font-size:14px;
+  padding:8px 16px;
   border-radius:8px;
-  border:1px solid #d1d5db;
-  background:#ffffff;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  font-weight:bold;
   cursor:pointer;
+  font-size:13px;
 }
 
-button.primary{
+.primary{
   background:#2563eb;
-  color:#ffffff;
+  color:#fff;
   border-color:#2563eb;
+}
+
+h3{
+  margin:14px 0 6px;
+  font-size:14px;
 }
 </style>
 </head>
 
 <body>
+  <div class="wrap">
 
+    <!-- HEADER WITH LOGO -->
+    <header class="header">
+      <img src="Immaginemm.png" alt="Immaginemm Logo" class="logo">
+      <div>
+        <h1>Child Registration Form</h1>
+        <p class="sub">Fill in the child’s details below</p>
+      </div>
+    </header>
 <div class="wrap">
 
-  <!-- HEADER -->
-  <header class="header">
-    <img src="Immaginemm.png" alt="Logo" class="logo">
-    <div>
-      <h1>Child Registration Form</h1>
-      <p class="sub">All fields are mandatory unless stated otherwise</p>
-    </div>
-  </header>
+    <!-- FORM -->
+    <form class="card" method="post">
+<header class="header">
+  <img src="Immaginemm.png" class="logo" alt="Logo">
+  <div>
+    <h1>Child Registration Form</h1>
+    <p class="sub">All fields are mandatory unless stated otherwise</p>
+  </div>
+</header>
 
-  <!-- FORM -->
-  <form method="POST" action="submit.php">
+      <!-- IMAGE INSIDE FORM -->
+      <div class="image-box">
+        <img src="Immaginemm.png" alt="Form Image">
+      </div>
+<form class="card" method="POST" action="submit.php">
 
-    <!-- IDENTIFICATION -->
-    <fieldset>
-      <legend>Identification</legend>
-      <label>Passport / ID</label>
-      <input name="passport_id" required>
-    </fieldset>
-
-    <!-- NAMES -->
-    <div class="side-by-side">
-
-      <!-- ENGLISH -->
       <fieldset>
-        <legend>Name (English)</legend>
-        <div class="grid cols-2">
-          <div><label>First Name</label><input name="First_Name_en" required></div>
-          <div><label>Father Name</label><input name="Father_Name_en" required></div>
-          <div><label>Grandfather Name</label><input name="Grandfather_Name_en" required></div>
-          <div><label>Last Name</label><input name="Last_Name_en" required></div>
-        </div>
-      </fieldset>
-
-      <!-- ARABIC -->
-      <fieldset class="arabic-section">
-        <legend>اسم الطفل (بالعربي)</legend>
-        <div class="grid cols-2">
-          <div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
-          <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
-          <div><label>اسم الجد</label><input name="Grandfather_Name_ar" required></div>
-          <div><label>اسم العائلة</label><input name="Last_Name_ar" required></div>
-        </div>
-      </fieldset>
-
-    </div>
-
-    <!-- PERSONAL INFO -->
-    <fieldset>
-      <legend>Personal Information</legend>
-      <div class="grid cols-3">
+      <legend>Identification</legend>
+    
+      <div class="grid cols-2">
         <div>
-          <label>Gender</label>
-          <div class="radio-group">
-            <label><input type="radio" name="gender" value="Male" required> Male</label>
-            <label><input type="radio" name="gender" value="Female" required> Female</label>
-          </div>
-        </div>
-        <div>
-          <label>Date of Birth</label>
-          <input type="date" name="date_of_birth" required>
-        </div>
-        <div>
-          <label>Nationality</label>
-          <input name="nationality" required>
-        </div>
-        <div>
-          <label>Blood Type</label>
-          <select name="blood_type" required>
-            <option value="">Select</option>
-            <option>A+</option><option>A-</option>
-            <option>B+</option><option>B-</option>
-            <option>AB+</option><option>AB-</option>
-            <option>O+</option><option>O-</option>
-          </select>
+          <label>Passport / ID</label>
+          <input name="passport_id" required>
         </div>
       </div>
     </fieldset>
-
-    <!-- MEDICAL -->
-    <fieldset>
-      <legend>Medical Information</legend>
-      <label>Medical Notes</label>
-      <textarea name="medical_notes" required></textarea>
-    </fieldset>
-
-    <!-- ACTIONS -->
-    <div class="actions">
-      <button type="reset">Clear</button>
-      <button type="submit" class="primary">Submit</button>
+<!-- IDENTIFICATION -->
+<fieldset>
+  <legend>Identification</legend>
+  <div class="grid cols-2">
+    <div>
+      <label>Passport / ID</label>
+      <input name="passport_id" required>
     </div>
+  </div>
+</fieldset>
 
-  </form>
+<!-- NAMES SIDE BY SIDE -->
+<div class="side-by-side">
 
+<!-- NAME ENGLISH -->
+<fieldset>
+@@ -217,8 +196,8 @@ <h1>Child Registration Form</h1>
+<fieldset class="arabic-section">
+<legend>اسم الطفل (بالعربي)</legend>
+<div class="grid cols-2">
+      <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
+<div><label>الاسم الأول</label><input name="First_Name_ar" required></div>
+      <div><label>اسم الأب</label><input name="Father_Name_ar" required></div>
+<div><label>اسم الجد</label><input name="Grandfather_Name_ar" required></div>
+<div><label>اسم العائلة</label><input name="Last_Name_ar" required></div>
+</div>
+@@ -238,12 +217,11 @@ <h1>Child Registration Form</h1>
+</div>
+</div>
+<div><label>Date of Birth</label><input type="date" name="date_of_birth" required></div>
+    <div><label>Nationality</label><input name="nationality" placeholder="e.g. Egyptian" required></div>
+    <div><label>Nationality</label><input name="nationality" required></div>
+<div>
+<label>Blood Type</label>
+<select name="blood_type" required>
+<option value="">Select</option>
+        <option>N/A</option>
+<option>A+</option><option>A-</option>
+<option>B+</option><option>B-</option>
+<option>AB+</option><option>AB-</option>
+@@ -269,17 +247,15 @@ <h3>Parent / Guardian 1 (Required)</h3>
+<div><label>Full Name</label><input name="parent1_full_name" required></div>
+<div><label>National ID Number</label><input name="parent1_national_id" required></div>
+<div><label>Job Title</label><input name="parent1_job_title" required></div>
+    <div><label> Phone </label><input name="phone" required></div>
+    <div><label> email </label><input name="email_1" required></div>
+    <div><label>Employer / Workplace</label><input name="parent1_employer" required></div>
 </div>
 
+<h3>Parent / Guardian 2 (Optional)</h3>
+<div class="grid cols-2">
+<div><label>Full Name</label><input name="parent2_full_name"></div>
+<div><label>National ID Number</label><input name="parent2_national_id"></div>
+<div><label>Job Title</label><input name="parent2_job_title"></div>
+    <div><label> Phone </label><input name="phone_2" required></div>
+    <div><label> email </label><input name="email_2" required></div>
+    <div><label>Employer / Workplace</label><input name="parent2_employer"></div>
+</div>
+</fieldset>
+
+@@ -312,7 +288,3 @@ <h3>Parent / Guardian 2 (Optional)</h3>
+</div>
 </body>
 </html>
+
+
+
