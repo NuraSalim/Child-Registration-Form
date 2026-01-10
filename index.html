@@ -167,18 +167,7 @@ h3{
 
 <form class="card" method="POST" action="submit.php">
 
-<!-- IDENTIFICATION -->
-<fieldset>
-  <legend>Identification</legend>
-  <div class="grid cols-2">
-    <div>
-      <label>Passport / ID</label>
-      <input name="passport_id" required>
-    </div>
-  </div>
-</fieldset>
-
-<!-- NAMES SIDE BY SIDE -->
+<!-- NAME SECTIONS SIDE BY SIDE -->
 <div class="side-by-side">
 
   <!-- NAME ENGLISH -->
@@ -217,7 +206,7 @@ h3{
       </div>
     </div>
     <div><label>Date of Birth</label><input type="date" name="date_of_birth" required></div>
-    <div><label>Nationality</label><input name="nationality" required></div>
+    <div><label>Nationality</label><input name="nationality" placeholder="e.g. Egyptian" required></div>
     <div>
       <label>Blood Type</label>
       <select name="blood_type" required>
